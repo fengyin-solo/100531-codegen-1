@@ -35,3 +35,28 @@ body { margin: 0; background: #f6f8fb; color: #1f2937; }
 .error-text { color: #b42318; }
 .status-legend { display: flex; flex-wrap: wrap; gap: 12px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
 .legend-item { background: #eef2f7; border-radius: 999px; padding: 2px 10px; }
+/* 证照台账：按发证机关分栏的看板 */
+.board { display: flex; gap: 12px; align-items: flex-start; overflow-x: auto; padding-bottom: 8px; }
+.board-column { flex: 0 0 270px; background: #f1f5f9; border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
+.board-column h3 { margin: 0 0 8px; font-size: 13px; color: var(--muted); }
+.board-column-urgent { background: #fff7ed; border-color: #fdba74; }
+.license-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-bottom: 8px; }
+.license-card.expired { border-color: #f04438; background: #fef3f2; }
+.card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.status-badge { background: #eef2f7; border-radius: 999px; padding: 2px 10px; font-size: 12px; color: var(--muted); }
+.license-card.expired .status-badge { background: #f04438; color: #fff; }
+.card-fields { margin: 0; font-size: 12px; display: grid; gap: 4px; }
+.card-fields div { display: flex; gap: 6px; }
+.card-fields dt { color: var(--muted); white-space: nowrap; }
+.card-fields dd { margin: 0; }
+.expiry-hint { color: #b42318; font-style: normal; margin-left: 4px; }
+.expired-tag { color: #b42318; font-size: 12px; font-weight: 600; margin: 6px 0 0; }
+.card-actions { margin-top: 8px; display: flex; justify-content: flex-end; }
+.done-text { color: var(--muted); font-size: 12px; }
+.create-panel { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 12px; }
+.create-title { margin: 0 0 10px; font-size: 14px; }
+.create-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-bottom: 10px; }
+.create-panel input, .create-panel select { width: 100%; padding: 6px 8px; border: 1px solid var(--border); border-radius: 6px; }
+.create-actions { display: flex; gap: 8px; }
+.create-hint { color: var(--muted); font-size: 12px; margin: 8px 0 0; }
+.ok-text { color: #067647; }

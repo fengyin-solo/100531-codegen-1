@@ -200,6 +200,18 @@ export const MODULES: ModuleMeta[] = [
     actionTargets: {"提交验收": "验收中", "确认通过": "已通过", "要求整改": "已整改"},
     metrics: ["待验收探方", "已通过探方", "遗留问题总数"],
   },
+  {
+    key: "license",
+    name: "证照台账",
+    entity: "证照",
+    desc: "维护证照台账，围绕许可证号、发证机关、资质等级、证照有效期做登记、延期报批与状态流转。",
+    fields: ["许可证号", "发证机关", "资质等级", "证照有效期", "下一次延期报批日", "关联探方", "经办人", "证照状态"],
+    statuses: ["待受理", "已受理", "已批复", "已换发"],
+    actions: ["提交受理", "提交批复", "办理换发"],
+    actionTargets: {"提交受理": "已受理", "提交批复": "已批复", "办理换发": "已换发"},
+    metrics: ["临近到期证照", "过期未换发", "已换发证照"],
+    strictFlow: true,
+  },
 ]
 
 export const MODULE_BY_KEY: Map<string, ModuleMeta> = new Map(

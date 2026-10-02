@@ -19,6 +19,7 @@ const Packing = () => import('@/views/packing/index.vue')
 const Conserve = () => import('@/views/conserve/index.vue')
 const Briefing = () => import('@/views/briefing/index.vue')
 const Acceptance = () => import('@/views/acceptance/index.vue')
+const License = () => import('@/views/license/index.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -42,6 +43,7 @@ const router = createRouter({
     { path: '/conserve', name: 'conserve', component: Conserve },
     { path: '/briefing', name: 'briefing', component: Briefing },
     { path: '/acceptance', name: 'acceptance', component: Acceptance },
+    { path: '/license', name: 'license', component: License },
   ],
 })
 
