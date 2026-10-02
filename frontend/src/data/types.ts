@@ -27,9 +27,35 @@ export type PageResult = {
   size: number
 }
 
+export type ActionPayload = {
+  证照有效期?: string
+}
+
 export type ActionResult = {
   ok: boolean
   message: string
+}
+
+export type PermitDraft = {
+  证照名称: string
+  许可证号: string
+  发证机关: string
+  资质等级: string
+  证照有效期: string
+}
+
+export type PermitLedgerResult = {
+  warningColumn: {
+    key: string
+    title: string
+    items: EntryRow[]
+  }
+  authorityColumns: {
+    key: string
+    title: string
+    items: EntryRow[]
+  }[]
+  metrics: { label: string; value: number }[]
 }
 
 export type OverviewResult = {

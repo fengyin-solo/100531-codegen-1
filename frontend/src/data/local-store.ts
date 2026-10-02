@@ -8,6 +8,31 @@ function clone<T>(value: T): T {
   return JSON.parse(JSON.stringify(value)) as T
 }
 
+function mergeSeedRows(
+  seed: Record<string, EntryRow[]>,
+  stored: Record<string, EntryRow[]>,
+): Record<string, EntryRow[]> {
+  const result: Record<string, EntryRow[]> = { ...seed }
+  for (const [key, storedRows] of Object.entries(stored)) {
+    const seedRows = seed[key] ?? []
+    const seedById = new Map(seedRows.map((row) => [Number(row.id), row]))
+    const storedIds = new Set<number>()
+    const merged = storedRows.map((row) => {
+      const id = Number(row.id)
+      storedIds.add(id)
+      const seedRow = seedById.get(id)
+      return seedRow ? { ...seedRow, ...row } : row
+    })
+    seedRows.forEach((row) => {
+      if (!storedIds.has(Number(row.id))) {
+        merged.push(row)
+      }
+    })
+    result[key] = merged
+  }
+  return result
+}
+
 function readStorage(): Record<string, EntryRow[]> {
   const fallback = clone(SEED_ROWS)
   if (typeof window === 'undefined' || !window.localStorage) {
@@ -20,7 +45,7 @@ function readStorage(): Record<string, EntryRow[]> {
   }
   try {
     const parsed = JSON.parse(raw) as Record<string, EntryRow[]>
-    return { ...fallback, ...parsed }
+    return mergeSeedRows(clone(SEED_ROWS), parsed)
   } catch {
     window.localStorage.setItem(STORAGE_KEY, JSON.stringify(fallback))
     return fallback

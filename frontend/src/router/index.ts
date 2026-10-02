@@ -14,6 +14,7 @@ const Photo = () => import('@/views/photo/index.vue')
 const Diary = () => import('@/views/diary/index.vue')
 const Labor = () => import('@/views/labor/index.vue')
 const Tool = () => import('@/views/tool/index.vue')
+const License = () => import('@/views/license/index.vue')
 const Safety = () => import('@/views/safety/index.vue')
 const Packing = () => import('@/views/packing/index.vue')
 const Conserve = () => import('@/views/conserve/index.vue')
@@ -37,6 +38,7 @@ const router = createRouter({
     { path: '/diary', name: 'diary', component: Diary },
     { path: '/labor', name: 'labor', component: Labor },
     { path: '/tool', name: 'tool', component: Tool },
+    { path: '/license', name: 'license', component: License },
     { path: '/safety', name: 'safety', component: Safety },
     { path: '/packing', name: 'packing', component: Packing },
     { path: '/conserve', name: 'conserve', component: Conserve },
